@@ -39,6 +39,9 @@ RUN cd /opt && unzip /opt/solr.zip  &&  mv  chronix-solr-6.4.2/* solr/ &&  \
   sed -i -e '/-Dsolr.clustering.enabled=true/ a SOLR_OPTS="$SOLR_OPTS -Dsun.net.inetaddr.ttl=60 -Dsun.net.inetaddr.negative.ttl=60"' /opt/solr/bin/solr.in.sh && \
   chown -R $SOLR_USER:$SOLR_GROUP /opt/solr
 
+COPY conf /opt/solr/server/solr/chronix/conf
+COPY lib/chronix-server-query-handler-0.5-beta.jar /opt/solr/server/solr/chronix/lib 
+
 COPY scripts /opt/docker-solr/scripts
 RUN chown -R $SOLR_USER:$SOLR_GROUP /opt/docker-solr
 
