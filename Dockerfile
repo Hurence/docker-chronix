@@ -41,6 +41,7 @@ RUN cd /opt && unzip /opt/solr.zip  &&  mv  chronix-solr-6.4.2/* solr/ &&  \
 
 COPY conf /opt/solr/server/solr/chronix/conf
 COPY lib/chronix-server-query-handler-0.5-beta.jar /opt/solr/server/solr/chronix/lib 
+COPY lib/chronix-server-type-metric-0.5-beta.jar /opt/solr/server/solr/chronix/lib 
 
 COPY scripts /opt/docker-solr/scripts
 RUN chown -R $SOLR_USER:$SOLR_GROUP /opt/docker-solr
