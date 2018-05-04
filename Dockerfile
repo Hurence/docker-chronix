@@ -59,4 +59,4 @@ WORKDIR /opt/solr
 USER $SOLR_USER
 
 #ENTRYPOINT ["docker-entrypoint.sh"]
-CMD [ "sh", "-c", "/opt/solr/bin/solr start && tail -f /dev/null"]
+CMD [ "sh", "-c", "/opt/solr/bin/solr start -m ${JAVA_MEMORY} && tail -f /dev/null"]
